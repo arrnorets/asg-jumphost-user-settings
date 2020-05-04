@@ -66,24 +66,13 @@ alias tsmark='perl -pe '"'"'$|=1; my ($sec, $min, $hour, $mday, $mon, $year, $wd
 alias rm='rm -i'
 alias cp='cp -v'
 alias mv='mv -v'
-alias grep='grep --colour=auto'
 [ -f /usr/local/bin/vim ] && alias vi='/usr/local/bin/vim'
 [ -f /usr/bin/vim ] && alias vi='/usr/bin/vim'
 alias less='less -x4'
 alias mtr='mtr -t'
 alias s='su -m'
-alias pagent_noop='puppet agent -t --noop'
-alias pagent='puppet agent -t'
 
 # env
-export LESS='-IMSR'
-export LESS_TERMCAP_mb=$'\033[01;31m'
-export LESS_TERMCAP_md=$'\033[01;31m'
-export LESS_TERMCAP_me=$'\033[0m'
-export LESS_TERMCAP_se=$'\033[0m'
-export LESS_TERMCAP_so=$'\033[01;44;33m'
-export LESS_TERMCAP_ue=$'\033[0m'
-export LESS_TERMCAP_us=$'\033[01;32m'
 export SVN_EDITOR="vim"
 export GIT_EDITOR="vim"
 export EDITOR="vim"
@@ -93,14 +82,9 @@ export FTP_PASSIVE_MODE="YES"
 export GOPATH=$HOME/lib/go
 export PATH=$PATH:$HOME/.local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/sbin:/opt/bin:/opt/local/bin:$GOPATH/bin:/cloud/bin:/usr/local/scripts:/opt/puppetlabs/bin:/opt/virtualenvs/ansible/bin:/opt/virtualenvs/ansible/lib:/opt/virtualenvs/ansible/lib64
 
-# banner
-if [[ $- == *i* ]] ; then
-        if [[ -d /etc/motd ]]; then
-                COUNT=$(ls /etc/motd/ | wc -l)
-                cat /etc/motd/cats_$(echo $((RANDOM%$COUNT+1)) )
-                alias randomcat="cat /etc/motd/cats_\$(echo \$((RANDOM%$COUNT+1)) )"
-        fi
-fi
+# K8s env
+export DATASTORE_TYPE=kubernetes
+export KUBECONFIG=/home/syseng/.kube/config 
 
 # sources
 if [[ -f $HOME/.git-completion.sh ]]; then
