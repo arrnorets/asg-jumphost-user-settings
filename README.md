@@ -1,2 +1,2 @@
-# asg_jumphost_user_settings
+# asg-jumphost-user-settings
 Reporitory that contains personal settings of syseng work account.
