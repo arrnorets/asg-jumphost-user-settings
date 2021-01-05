@@ -102,6 +102,11 @@ export SCREENDIR=$HOME/.screen
 ###Add xkb for Qt
 export QT_XKB_CONFIG_ROOT=/usr/share/X11/xkb
 
+## For ssh agent through screen
+function screen_ssh {
+    /usr/bin/ln -sf "${SSH_AUTH_SOCK}" "${HOME}/.screen/ssh-auth-sock"
+}
+
 ###Allow on-network local connections being added to access control list - need this to run Docker and other that require X
 xhost +local:
 
