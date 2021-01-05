@@ -1,0 +1,31 @@
+# Tip from ArchWiki https://wiki.archlinux.org/index.php/Screen_Tips
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10
+screen 1
+
+# Add status line at the bottom of the screen
+# Advice taken from http://magazine.redhat.com/2007/09/27/a-guide-to-gnu-screen/
+hardstatus alwayslastline
+
+# Customize status line
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+
+# mc subshell support
+altscreen on
+
+# Large scrollback
+defscrollback 10240
+
+# Audible bell
+vbell off
+
+# Scroll bar in xterm
+termcapinfo xterm* ti@:te@
+
+#Save SSH_AUTH_SOCK to enable the restoring of ssh key forward after disconnect
+unsetenv SSH_AUTH_SOCK
+setenv SSH_AUTH_SOCK $HOME/.screen/ssh-auth-sock
+
+screen -t 'controlhost' bash
+
